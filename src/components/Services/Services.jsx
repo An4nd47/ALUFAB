@@ -41,14 +41,6 @@ export default function Services() {
 
   return (
     <section id="services" className="section-padding" style={{ background: 'var(--background)' }} ref={sectionRef}>
-      {/* Background pattern */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.03]"
-        style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, #000000 1px, transparent 0)`,
-          backgroundSize: "40px 40px",
-        }}
-      />
 
       <div className="container-custom relative">
         {/* Header */}

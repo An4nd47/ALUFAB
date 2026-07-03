@@ -1,11 +1,11 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronDown } from "lucide-react";
-import { heroTextVariant, fadeUp } from "../../animations/variants";
+import { ArrowRight } from "lucide-react";
+import { heroTextVariant } from "../../animations/variants";
 
 // Particle canvas component
-function ParticleCanvas() {
+function ParticleCanvas({ isDark }) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -31,7 +31,10 @@ function ParticleCanvas() {
         this.speedX = (Math.random() - 0.5) * 0.3;
         this.speedY = (Math.random() - 0.5) * 0.3;
         this.opacity = Math.random() * 0.3 + 0.05;
-        this.color = Math.random() > 0.3 ? "0, 0, 0" : "79, 155, 199";
+        // In dark mode use lighter particles, in light mode use dark
+        this.color = isDark
+          ? (Math.random() > 0.3 ? "200, 220, 240" : "79, 155, 199")
+          : (Math.random() > 0.3 ? "0, 0, 0" : "79, 155, 199");
       }
       update() {
         this.x += this.speedX;
@@ -51,6 +54,8 @@ function ParticleCanvas() {
       particles = Array.from({ length: 80 }, () => new Particle());
     };
 
+    const lineColor = isDark ? "200,220,240" : "0,0,0";
+
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       particles.forEach((p) => { p.update(); p.draw(); });
@@ -60,7 +65,7 @@ function ParticleCanvas() {
           const dist = Math.hypot(a.x - b.x, a.y - b.y);
           if (dist < 120) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(0,0,0,${0.05 * (1 - dist / 120)})`;
+            ctx.strokeStyle = `rgba(${lineColor},${0.05 * (1 - dist / 120)})`;
             ctx.lineWidth = 0.5;
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
@@ -76,12 +81,27 @@ function ParticleCanvas() {
     animate();
     window.addEventListener("resize", () => { resize(); init(); });
     return () => { cancelAnimationFrame(animationId); };
-  }, []);
+  }, [isDark]);
 
   return <canvas ref={canvasRef} className="particles-canvas w-full h-full" />;
 }
 
 export default function Hero() {
+  const [isDark, setIsDark] = useState(
+    () => document.documentElement.classList.contains("dark")
+  );
+
+  // Observe <html> class changes so we re-render when theme switches
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section
@@ -89,22 +109,15 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       aria-label="Hero section"
     >
-      {/* Background image with zoom */}
+      {/* Background image — no zoom/scale animation */}
       <div className="absolute inset-0 z-0">
-        <motion.div
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 8, ease: "easeOut" }}
-          className="w-full h-full"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1920&q=80"
-            alt="Luxury modern building with aluminium facade"
-            className="w-full h-full object-cover"
-            loading="eager"
-            fetchpriority="high"
-          />
-        </motion.div>
+        <img
+          src="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1920&q=80"
+          alt="Luxury modern building with aluminium facade"
+          className="w-full h-full object-cover"
+          loading="eager"
+          fetchPriority="high"
+        />
         {/* Gradient overlays */}
         <div className="absolute inset-0 hero-gradient" />
         <div className="absolute inset-0 hero-gradient-left" />
@@ -112,10 +125,10 @@ export default function Hero() {
 
       {/* Particles */}
       <div className="absolute inset-0 z-10">
-        <ParticleCanvas />
+        <ParticleCanvas isDark={isDark} />
       </div>
 
-      {/* Floating glass elements */}
+      {/* Floating stat cards — unchanged */}
       <motion.div
         animate={{ y: [0, -12, 0], rotate: [0, 1, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
@@ -140,7 +153,32 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      {/* Light reflection effect */}
+        {/* New floating cards */}
+        <motion.div
+          animate={{ y: [0, 6, 0], rotate: [-0.5, 0.5, -0.5] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute top-1/3 left-[5%] z-10 hidden lg:block"
+        >
+          <div className="flat-card p-5 w-44">
+            <div className="text-primary font-bold text-3xl mb-1">200+</div>
+            <div className="text-muted text-xs">Happy Clients</div>
+            <div className="w-8 h-0.5 bg-primary mt-2" />
+          </div>
+        </motion.div>
+
+        <motion.div
+          animate={{ y: [0, -8, 0], rotate: [0.5, -0.5, 0.5] }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2.5 }}
+          className="absolute bottom-1/4 left-[12%] z-10 hidden lg:block"
+        >
+          <div className="flat-card p-5 w-44">
+            <div className="text-primary font-bold text-3xl mb-1">50+</div>
+            <div className="text-muted text-xs">Commercial Works</div>
+            <div className="w-8 h-0.5 bg-primary mt-2" />
+          </div>
+        </motion.div>
+
+        {/* Light reflection sweep */}
       <motion.div
         animate={{ x: ["-100%", "200%"] }}
         transition={{ duration: 6, repeat: Infinity, ease: "linear", repeatDelay: 4 }}
@@ -152,7 +190,29 @@ export default function Hero() {
 
       {/* Main Content */}
       <div className="relative z-20 container-custom pt-28 pb-20">
-        <div className="max-w-3xl">
+        {/*
+          Content container:
+          - Light mode: frosted-glass panel so text pops against the background image
+          - Dark mode: fully transparent, elements render as-is on the dark gradient
+        */}
+        <div
+          className={`max-w-3xl transition-all duration-500 shadow-xl ${
+            isDark
+              ? "" // no container in dark mode
+              : "rounded-2xl p-8 sm:p-10"
+          }`}
+          style={
+            isDark
+              ? {}
+              : {
+                  background: "rgba(250, 249, 246, 0.55)",
+                  backdropFilter: "blur(16px)",
+                  WebkitBackdropFilter: "blur(16px)",
+                  border: "1px solid rgba(255,255,255,0.35)",
+                  boxShadow: "0 8px 40px rgba(0,0,0,0.10), 0 1.5px 0 rgba(255,255,255,0.6) inset",
+                }
+          }
+        >
           {/* Eyebrow */}
           <motion.div
             custom={0}
@@ -162,7 +222,7 @@ export default function Hero() {
             className="flex items-center gap-3 mb-6"
           >
             <span className="w-10 h-px bg-primary" />
-            <span className="section-subtitle mb-0">Premium Aluminium & uPVC Fabrication</span>
+            <span className="section-subtitle mb-0">Premium Aluminium &amp; uPVC Fabrication</span>
           </motion.div>
 
           {/* Headline */}
@@ -172,13 +232,12 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
               variants={heroTextVariant}
-              className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[82px] leading-[1.05] 
-                         font-bold"
+              className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[82px] leading-[1.05] font-bold"
               style={{ color: 'var(--text)' }}
             >
               Precision Crafted
               <br />
-              <span className="text-primary">Aluminium</span> &
+              <span className="text-primary">Aluminium</span> &amp;
               <br />
               uPVC Solutions
             </motion.h1>
@@ -235,7 +294,8 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
             variants={heroTextVariant}
-            className="flex flex-wrap gap-8 mt-16 pt-8 border-t border-black/10"
+            className="flex flex-wrap gap-8 mt-10 pt-8"
+            style={{ borderTop: isDark ? "1px solid rgba(255,255,255,0.1)" : "1px solid rgba(0,0,0,0.08)" }}
           >
             {[
               { num: "15+", label: "Years Experience" },
@@ -251,22 +311,6 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
-      >
-        <span className="text-black/30 text-xs tracking-widest uppercase">Scroll</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <ChevronDown size={18} className="text-primary" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 }

@@ -48,7 +48,7 @@ export default function AboutPreview() {
               initial={{ scale: 0, opacity: 0 }}
               animate={isInView ? { scale: 1, opacity: 1 } : {}}
               transition={{ delay: 0.5, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute -bottom-6 -right-6 flat-card p-6 w-44 text-center"
+              className="absolute -bottom-6 -right-6 flat-card p-6 w-44 text-center z-10"
             >
               <div className="text-primary font-bold text-3xl font-display">15+</div>
               <div className="text-xs mt-1" style={{ color: 'var(--muted)' }}>Years of Precision</div>

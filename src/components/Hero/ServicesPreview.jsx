@@ -66,11 +66,11 @@ export default function ServicesPreview() {
       style={{ background: "linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 60%, var(--primary) 100%)" }}
       ref={sectionRef}
     >
-      {/* Background dot pattern */}
+      {/* Background dot pattern — white on blue for contrast */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.04]"
+        className="absolute inset-0 pointer-events-none opacity-[0.07]"
         style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, #000000 1px, transparent 0)`,
+          backgroundImage: `radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0)`,
           backgroundSize: "40px 40px",
         }}
       />

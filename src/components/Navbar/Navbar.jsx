@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sun, Moon } from "lucide-react";
 
@@ -12,12 +12,27 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+  const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [theme, setTheme] = useState("light");
+  const [visible, setVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => {
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 50);
+
+      // Hide navbar when scrolling down, show when scrolling up
+      if (currentScrollY > lastScrollY && currentScrollY > 120 && !mobileOpen) {
+        setVisible(false);
+      } else {
+        setVisible(true);
+      }
+      setLastScrollY(currentScrollY);
+    };
+
     window.addEventListener("scroll", onScroll, { passive: true });
 
     // Read initial theme
@@ -25,7 +40,7 @@ export default function Navbar() {
     setTheme(isDark ? "dark" : "light");
 
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [lastScrollY, mobileOpen]);
 
   const toggleTheme = () => {
     if (document.documentElement.classList.contains("dark")) {
@@ -39,15 +54,30 @@ export default function Navbar() {
     }
   };
 
+  const headerVariants = {
+    visible: { 
+      y: 0, 
+      opacity: 1,
+      transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } 
+    },
+    hidden: { 
+      y: -100, 
+      opacity: 0,
+      transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } 
+    }
+  };
+
+  const isHomePage = location.pathname === "/";
+  const headerBgClass = isHomePage 
+    ? (scrolled ? "navbar-glass py-3" : "bg-transparent py-5")
+    : "navbar-glass py-3";
+
   return (
     <>
       <motion.header
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
-          scrolled ? "navbar-glass py-3" : "bg-transparent py-5"
-        }`}
+        variants={headerVariants}
+        animate={visible ? "visible" : "hidden"}
+        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${headerBgClass}`}
       >
         <div className="container-custom flex items-center justify-between">
           {/* Logo */}
@@ -71,7 +101,7 @@ export default function Navbar() {
                     isActive ? "text-primary" : "hover:text-primary"
                   }`
                 }
-                style={({ isActive }) => ({ color: isActive ? 'var(--primary)' : 'var(--muted)' })}
+                style={({ isActive }) => ({ color: isActive ? 'var(--primary)' : 'var(--text)' })}
               >
                 {({ isActive }) => (
                   <>
@@ -92,7 +122,7 @@ export default function Navbar() {
             <button
               onClick={toggleTheme}
               className="p-2 rounded-lg transition-colors hover:bg-accent/10"
-              style={{ color: 'var(--muted)' }}
+              style={{ color: 'var(--text)' }}
               aria-label="Toggle dark mode"
             >
               {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
@@ -108,7 +138,7 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <button
             className="lg:hidden p-2 rounded-lg transition-colors hover:bg-accent/10"
-            style={{ color: 'var(--muted)' }}
+            style={{ color: 'var(--text)' }}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -121,11 +151,11 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-[99] lg:hidden flex flex-col"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "100vh" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-x-0 top-0 z-[99] lg:hidden flex flex-col overflow-hidden"
             style={{ background: 'var(--surface)' }}
           >
             <div className="flex items-center justify-between px-6 py-5 border-b"
@@ -137,14 +167,14 @@ export default function Navbar() {
                 <button
                   onClick={toggleTheme}
                   className="p-2 rounded-lg transition-colors hover:bg-accent/10"
-                  style={{ color: 'var(--muted)' }}
+                  style={{ color: 'var(--text)' }}
                   aria-label="Toggle dark mode"
                 >
                   {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
                 </button>
                 <button
                   className="p-2 rounded-lg transition-colors hover:bg-accent/10"
-                  style={{ color: 'var(--muted)' }}
+                  style={{ color: 'var(--text)' }}
                   onClick={() => setMobileOpen(false)}
                   aria-label="Close menu"
                 >

@@ -17,6 +17,10 @@
     --text: #000000;
     --muted: #6B645D;
     --primary-dark: #3A7FA8;
+    /* RGB channels for rgba() usage in pseudo-elements */
+    --primary-rgb: 79, 155, 199;
+    --mesh-line-opacity: 0.035;
+    --mesh-orb-opacity: 0.08;
   }
 
   html.dark {
@@ -30,6 +34,9 @@
     --text: #F9FAFB;
     --muted: #9CA3AF;
     --primary-dark: #3A7FA8;
+    --primary-rgb: 79, 155, 199;
+    --mesh-line-opacity: 0.06;
+    --mesh-orb-opacity: 0.12;
   }
 
   html {
@@ -78,6 +85,63 @@
 @layer components {
   .section-padding {
     @apply py-20 px-4 sm:px-6 lg:px-8;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Animated diagonal mesh grid — aluminium-style texture */
+  .section-padding::before {
+    content: '';
+    position: absolute;
+    inset: -80px;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      repeating-linear-gradient(
+        45deg,
+        transparent 0px,
+        transparent 36px,
+        rgba(var(--primary-rgb), var(--mesh-line-opacity)) 36px,
+        rgba(var(--primary-rgb), var(--mesh-line-opacity)) 37px
+      ),
+      repeating-linear-gradient(
+        135deg,
+        transparent 0px,
+        transparent 36px,
+        rgba(var(--primary-rgb), var(--mesh-line-opacity)) 36px,
+        rgba(var(--primary-rgb), var(--mesh-line-opacity)) 37px
+      );
+    animation: alufab-mesh-drift 30s linear infinite;
+    will-change: transform;
+  }
+
+  /* Ambient corner glow orb */
+  .section-padding::after {
+    content: '';
+    position: absolute;
+    top: -15%;
+    right: -8%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle at center,
+      rgba(var(--primary-rgb), var(--mesh-orb-opacity)) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: 0;
+    animation: alufab-orb-pulse 12s ease-in-out infinite;
+    will-change: opacity, transform;
+  }
+
+  /* Alternate orb position for even sections (variety) */
+  .section-padding:nth-of-type(even)::after {
+    top: auto;
+    bottom: -15%;
+    right: auto;
+    left: -8%;
+    animation-delay: -6s;
   }
 
   .bg-light {
@@ -86,6 +150,8 @@
 
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    position: relative;
+    z-index: 1;
   }
 
   .section-title {
@@ -223,7 +289,9 @@
 
 /* ── Navbar (Scrolled State) ──────────────────────────────────────── */
 .navbar-glass {
-  background: var(--surface);
+  background-color: color-mix(in srgb, var(--surface) 85%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
   box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
@@ -388,4 +456,50 @@
   .section-title {
     font-size: 2rem;
   }
+}
+
+/* ── Animated Section Background Keyframes ────────────────────────── */
+/* Diagonal drift — simulates brushed aluminium surface movement */
+@keyframes alufab-mesh-drift {
+  0%   { transform: translate(0, 0); }
+  100% { transform: translate(37px, 37px); }
+}
+
+/* Ambient glow orb — slow breathe effect */
+@keyframes alufab-orb-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+/* ── Services Preview blue-bg white mesh override ─────────────────── */
+#services-preview.section-padding::before {
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent 0px,
+      transparent 36px,
+      rgba(255, 255, 255, 0.08) 36px,
+      rgba(255, 255, 255, 0.08) 37px
+    ),
+    repeating-linear-gradient(
+      135deg,
+      transparent 0px,
+      transparent 36px,
+      rgba(255, 255, 255, 0.08) 36px,
+      rgba(255, 255, 255, 0.08) 37px
+    );
+}
+
+#services-preview.section-padding::after {
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.12) 0%,
+    transparent 70%
+  );
 }
