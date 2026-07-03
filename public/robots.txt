@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.alufab.in/sitemap.xml
+
+# Block admin / private paths (if any in future)
+Disallow: /admin/
+Disallow: /private/

@@ -1,0 +1,391 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base Reset & Smooth Scroll ───────────────────────────────────── */
+@layer base {
+  :root {
+    --primary: #4F9BC7;
+    --secondary: #71BCE1;
+    --accent: #BEB1A3;
+    --background: #FAF9F6;
+    --bg-alt: #F5F4F0;
+    --surface: #FFFFFF;
+    --border: #E2DFD9;
+    --text: #000000;
+    --muted: #6B645D;
+    --primary-dark: #3A7FA8;
+  }
+
+  html.dark {
+    --primary: #4F9BC7;
+    --secondary: #71BCE1;
+    --accent: #4B5563;
+    --background: #0B0F19;
+    --bg-alt: #111827;
+    --surface: #1F2937;
+    --border: #374151;
+    --text: #F9FAFB;
+    --muted: #9CA3AF;
+    --primary-dark: #3A7FA8;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--text);
+    @apply font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  ::selection {
+    background-color: rgba(79, 155, 199, 0.2);
+    color: #000000;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+  }
+}
+
+/* ── Utility Components ───────────────────────────────────────────── */
+@layer components {
+  .section-padding {
+    @apply py-20 px-4 sm:px-6 lg:px-8;
+  }
+
+  .bg-light {
+    background-color: var(--bg-alt) !important;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-title {
+    @apply font-display text-4xl md:text-5xl font-bold leading-tight;
+    color: var(--text);
+  }
+
+  .section-subtitle {
+    @apply text-primary uppercase tracking-[0.2em] text-sm font-semibold mb-3 block;
+  }
+
+  .section-desc {
+    @apply text-lg leading-relaxed max-w-2xl;
+    color: var(--muted);
+  }
+
+  /* Clean flat card */
+  .flat-card {
+    @apply bg-surface border border-border rounded-xl p-6 transition-all duration-200;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  }
+
+  .flat-card:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    @apply -translate-y-0.5;
+  }
+
+  /* Legacy glass-card mapped to flat-card */
+  .glass-card {
+    @apply bg-surface border border-border rounded-xl;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  }
+
+  /* Primary button */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-lg text-sm tracking-wide transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--primary-dark);
+    @apply shadow-md -translate-y-0.5;
+  }
+
+  /* Outline / Secondary button */
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-6 py-3 border border-primary text-primary font-semibold rounded-lg text-sm tracking-wide transition-all duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-4 py-2 text-primary font-medium text-sm tracking-wide transition-all duration-200 hover:gap-3;
+  }
+
+  /* Product Card */
+  .product-card {
+    @apply relative rounded-xl overflow-hidden bg-surface border border-border transition-all duration-300 cursor-pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  }
+
+  .product-card:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  }
+
+  /* Accent line */
+  .accent-line {
+    @apply block w-12 h-0.5 bg-primary my-4;
+  }
+
+  /* Legacy gold-line alias */
+  .gold-line {
+    @apply block w-16 h-0.5 bg-primary my-4;
+  }
+
+  /* Tag chip */
+  .tag-chip {
+    @apply inline-flex items-center px-3 py-1 rounded-md text-xs font-semibold text-primary border border-primary;
+    background-color: transparent;
+  }
+
+  /* Loading skeleton */
+  .skeleton {
+    @apply animate-pulse bg-muted rounded-lg;
+  }
+}
+
+/* ── Custom Cursor (disabled – standard cursor restored) ──────────── */
+/* Custom cursor removed for clean corporate UX */
+
+/* ── Scroll Progress Bar ──────────────────────────────────────────── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--primary);
+  z-index: 9999;
+  transform-origin: left;
+  transition: width 0.1s ease;
+}
+
+/* ── Particle Canvas ──────────────────────────────────────────────── */
+.particles-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ── Hero specific ────────────────────────────────────────────────── */
+.hero-gradient {
+  background: linear-gradient(to bottom,
+      rgba(250, 249, 246, 0) 0%,
+      rgba(250, 249, 246, 0.3) 50%,
+      rgba(250, 249, 246, 1) 100%);
+}
+
+.dark .hero-gradient {
+  background: linear-gradient(to bottom,
+      rgba(11, 15, 25, 0) 0%,
+      rgba(11, 15, 25, 0.3) 50%,
+      rgba(11, 15, 25, 1) 100%);
+}
+
+.hero-gradient-left {
+  background: linear-gradient(to right,
+      rgba(250, 249, 246, 0.8) 0%,
+      rgba(250, 249, 246, 0.3) 60%,
+      rgba(250, 249, 246, 0) 100%);
+}
+
+.dark .hero-gradient-left {
+  background: linear-gradient(to right,
+      rgba(11, 15, 25, 0.8) 0%,
+      rgba(11, 15, 25, 0.3) 60%,
+      rgba(11, 15, 25, 0) 100%);
+}
+
+/* ── Navbar (Scrolled State) ──────────────────────────────────────── */
+.navbar-glass {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+/* ── Section divider ──────────────────────────────────────────────── */
+.section-divider {
+  height: 1px;
+  background-color: var(--border);
+  @apply my-0;
+}
+
+/* ── Timeline line ────────────────────────────────────────────────── */
+.timeline-line {
+  width: 2px;
+  background: var(--border);
+}
+
+/* ── Image reveal ─────────────────────────────────────────────────── */
+.img-reveal {
+  overflow: hidden;
+}
+
+.img-reveal img {
+  transform: scale(1.1);
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.img-reveal:hover img,
+.img-reveal.revealed img {
+  transform: scale(1);
+}
+
+/* ── Filter tabs ──────────────────────────────────────────────────── */
+.filter-tab {
+  @apply px-5 py-2 rounded-lg text-sm font-medium transition-all duration-200 border border-border text-muted hover:text-primary hover:border-primary;
+}
+
+.filter-tab.active {
+  color: white;
+  @apply bg-primary border-primary;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+/* ── Accordion ────────────────────────────────────────────────────── */
+.accordion-item {
+  @apply border border-border rounded-xl overflow-hidden mb-3 transition-all duration-200 bg-surface hover:border-primary;
+}
+
+/* ── Gallery grid ─────────────────────────────────────────────────── */
+.gallery-grid {
+  columns: 4;
+  column-gap: 16px;
+}
+
+@media (max-width: 1024px) {
+  .gallery-grid {
+    columns: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    columns: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    columns: 1;
+  }
+}
+
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 16px;
+}
+
+/* ── Floating WhatsApp ────────────────────────────────────────────── */
+.whatsapp-float {
+  @apply fixed bottom-8 right-8 z-50 flex items-center justify-center w-14 h-14 rounded-full transition-all duration-200 hover:scale-105;
+  background: #25D366;
+  box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+}
+
+.quote-float {
+  @apply fixed bottom-8 right-24 z-50 flex items-center gap-2 px-5 py-3 rounded-lg bg-primary text-white font-semibold text-sm transition-all duration-200 hover:scale-105;
+  box-shadow: 0 4px 16px rgba(79,155,199,0.25);
+}
+
+/* ── Back to top ──────────────────────────────────────────────────── */
+.back-to-top {
+  @apply fixed bottom-28 right-8 z-50 flex items-center justify-center w-11 h-11 rounded-lg bg-surface border border-border text-muted hover:text-primary hover:border-primary transition-all duration-200 hover:-translate-y-0.5;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+/* ── Testimonial carousel ─────────────────────────────────────────── */
+.testimonial-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Process step dot ─────────────────────────────────────────────── */
+.process-dot {
+  @apply w-12 h-12 rounded-lg flex items-center justify-center border-2 border-primary text-primary font-bold text-base relative z-10;
+  background-color: var(--surface);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+/* ── Input styles ─────────────────────────────────────────────────── */
+.form-input {
+  @apply w-full px-4 py-3 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary transition-all duration-200;
+  background-color: var(--surface);
+  border: 1px solid var(--accent);
+  color: var(--text);
+}
+
+.form-input::placeholder {
+  color: var(--muted);
+  opacity: 0.6;
+}
+
+.form-input:focus {
+  border-color: var(--primary);
+  background-color: var(--background);
+}
+
+.form-label {
+  @apply block text-xs font-semibold uppercase tracking-wider mb-2;
+  color: var(--muted);
+}
+
+/* ── Lightbox ─────────────────────────────────────────────────────── */
+.lightbox-overlay {
+  @apply fixed inset-0 z-[9999] flex items-center justify-center bg-black/80;
+}
+
+/* ── Feature card (Why Choose Us) ─────────────────────────────────── */
+.feature-card {
+  @apply p-6 rounded-xl bg-surface border border-border transition-all duration-200 cursor-default;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.feature-card:hover {
+  @apply border-primary;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  @apply -translate-y-0.5;
+}
+
+/* ── Magnetic button ──────────────────────────────────────────────── */
+.magnetic-btn {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Overflow hidden helpers ──────────────────────────────────────── */
+.overflow-clip {
+  overflow: hidden;
+}
+
+/* ── Responsive heading helpers ───────────────────────────────────── */
+@media (max-width: 640px) {
+  .section-title {
+    font-size: 2rem;
+  }
+}
