@@ -108,7 +108,7 @@ export default function Testimonials() {
                   aria-hidden={!isCenter}
                 >
                   <Quote size={32} className="text-primary/40" />
-                  <p className="text-text/75 leading-relaxed text-sm italic">
+                  <p className="leading-relaxed text-sm italic" style={{ color: 'var(--text)', opacity: 0.8 }}>
                     &ldquo;{t.review}&rdquo;
                   </p>
                   <div className="mt-auto pt-4 border-t border-border flex items-center gap-4">
@@ -119,8 +119,8 @@ export default function Testimonials() {
                       loading="lazy"
                     />
                     <div>
-                      <div className="text-text font-semibold text-sm">{t.name}</div>
-                      <div className="text-muted text-xs">{t.location}</div>
+                      <div className="font-semibold text-sm" style={{ color: 'var(--text)' }}>{t.name}</div>
+                      <div className="text-xs" style={{ color: 'var(--muted)' }}>{t.location}</div>
                       <StarRating rating={t.rating} />
                     </div>
                     <div className="ml-auto text-right">
@@ -144,7 +144,7 @@ export default function Testimonials() {
                 className="flat-card p-8"
               >
                 <Quote size={32} className="text-primary/40 mb-4" />
-                <p className="text-text/75 leading-relaxed text-sm italic mb-6">
+                <p className="leading-relaxed text-sm italic mb-6" style={{ color: 'var(--text)', opacity: 0.8 }}>
                   &ldquo;{testimonials[current].review}&rdquo;
                 </p>
                 <div className="pt-4 border-t border-border flex items-center gap-4">
@@ -154,8 +154,8 @@ export default function Testimonials() {
                     className="w-12 h-12 rounded-full object-cover border-2 border-primary/30"
                   />
                   <div>
-                    <div className="text-text font-semibold text-sm">{testimonials[current].name}</div>
-                    <div className="text-muted text-xs">{testimonials[current].location}</div>
+                    <div className="font-semibold text-sm" style={{ color: 'var(--text)' }}>{testimonials[current].name}</div>
+                    <div className="text-xs" style={{ color: 'var(--muted)' }}>{testimonials[current].location}</div>
                     <StarRating rating={testimonials[current].rating} />
                   </div>
                 </div>

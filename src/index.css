@@ -179,10 +179,15 @@
     @apply -translate-y-0.5;
   }
 
-  /* Legacy glass-card mapped to flat-card */
+  /* Frosted glass card — used in Contact section */
   .glass-card {
-    @apply bg-surface border border-border rounded-xl;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    @apply rounded-xl border border-border transition-all duration-200;
+    background-color: var(--surface);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  .glass-card:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
   }
 
   /* Primary button */

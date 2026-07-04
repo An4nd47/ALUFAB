@@ -189,29 +189,21 @@ export default function Hero() {
       />
 
       {/* Main Content */}
-      <div className="relative z-20 container-custom pt-28 pb-20">
+      <div className="relative z-20 container-custom pt-20  pb-16">
         {/*
           Content container:
           - Light mode: frosted-glass panel so text pops against the background image
           - Dark mode: fully transparent, elements render as-is on the dark gradient
         */}
         <div
-          className={`max-w-3xl transition-all duration-500 shadow-xl ${
-            isDark
-              ? "" // no container in dark mode
-              : "rounded-2xl p-8 sm:p-10"
-          }`}
-          style={
-            isDark
-              ? {}
-              : {
-                  background: "rgba(250, 249, 246, 0.55)",
-                  backdropFilter: "blur(16px)",
-                  WebkitBackdropFilter: "blur(16px)",
-                  border: "1px solid rgba(255,255,255,0.35)",
-                  boxShadow: "0 8px 40px rgba(0,0,0,0.10), 0 1.5px 0 rgba(255,255,255,0.6) inset",
-                }
-          }
+          className="max-w-3xl mx-auto transition-all duration-500 shadow-xl rounded-2xl p-6 sm:p-8"
+          style={{
+            background: isDark ? "rgba(250, 249, 246, 0)" : "rgba(250, 249, 246, 0.55)",
+            backdropFilter: isDark ? "blur(0px)" : "blur(16px)",
+            WebkitBackdropFilter: isDark ? "blur(0px)" : "blur(16px)",
+            border: isDark ? "1px solid rgba(255,255,255,0)" : "1px solid rgba(255,255,255,0.35)",
+            boxShadow: isDark ? "none" : "0 8px 40px rgba(0,0,0,0.10), 0 1.5px 0 rgba(255,255,255,0.6) inset",
+          }}
         >
           {/* Eyebrow */}
           <motion.div
@@ -219,20 +211,20 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
             variants={heroTextVariant}
-            className="flex items-center gap-3 mb-6"
+            className="flex items-center gap-3 mb-3"
           >
-            <span className="w-10 h-px bg-primary" />
-            <span className="section-subtitle mb-0">Premium Aluminium &amp; uPVC Fabrication</span>
+            <span className="w-8 h-px bg-primary" />
+            <span className="section-subtitle mb-0 text-xs">Premium Aluminium &amp; uPVC Fabrication</span>
           </motion.div>
 
           {/* Headline */}
-          <div className="overflow-clip mb-6">
+          <div className="overflow-clip mb-3">
             <motion.h1
               custom={1}
               initial="hidden"
               animate="visible"
               variants={heroTextVariant}
-              className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[82px] leading-[1.05] font-bold"
+              className="font-display text-4xl sm:text-5xl md:text-[52px] leading-[1.08] font-bold"
               style={{ color: 'var(--text)' }}
             >
               Precision Crafted
@@ -249,7 +241,7 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
             variants={heroTextVariant}
-            className="text-lg md:text-xl leading-relaxed max-w-xl mb-10"
+            className="text-base leading-relaxed max-w-md mb-6"
             style={{ color: 'var(--muted)' }}
           >
             Premium windows, doors, cabinets and architectural fabrication
@@ -262,7 +254,7 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
             variants={heroTextVariant}
-            className="flex flex-wrap items-center gap-4"
+            className="flex flex-wrap items-center gap-3"
           >
             <Link to="/products-projects">
               <motion.button
@@ -286,28 +278,6 @@ export default function Hero() {
                 Get Free Quote
               </motion.button>
             </Link>
-          </motion.div>
-
-          {/* Stats row */}
-          <motion.div
-            custom={4}
-            initial="hidden"
-            animate="visible"
-            variants={heroTextVariant}
-            className="flex flex-wrap gap-8 mt-10 pt-8"
-            style={{ borderTop: isDark ? "1px solid rgba(255,255,255,0.1)" : "1px solid rgba(0,0,0,0.08)" }}
-          >
-            {[
-              { num: "15+", label: "Years Experience" },
-              { num: "500+", label: "Projects Done" },
-              { num: "200+", label: "Happy Clients" },
-              { num: "50+", label: "Commercial Works" },
-            ].map((s) => (
-              <div key={s.label}>
-                <div className="text-primary font-bold text-2xl">{s.num}</div>
-                <div className="text-xs mt-0.5" style={{ color: 'var(--muted)' }}>{s.label}</div>
-              </div>
-            ))}
           </motion.div>
         </div>
       </div>

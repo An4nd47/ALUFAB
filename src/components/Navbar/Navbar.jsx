@@ -67,10 +67,11 @@ export default function Navbar() {
     }
   };
 
+  // Always blue background — transparent blue on hero top, solid on scroll/other pages
   const isHomePage = location.pathname === "/";
-  const headerBgClass = isHomePage 
-    ? (scrolled ? "navbar-glass py-3" : "bg-transparent py-5")
-    : "navbar-glass py-3";
+  const headerBgClass = scrolled || !isHomePage
+    ? "py-3"
+    : "py-5";
 
   return (
     <>
@@ -78,15 +79,16 @@ export default function Navbar() {
         variants={headerVariants}
         animate={visible ? "visible" : "hidden"}
         className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${headerBgClass}`}
+        style={{ backgroundColor: 'var(--primary)' }}
       >
         <div className="container-custom flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
+            <div className="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
               <span className="text-white font-black text-xs tracking-tight">AF</span>
             </div>
-            <span className="font-display font-bold text-xl" style={{ color: 'var(--text)' }}>
-              Alu<span className="text-primary">fab</span>
+            <span className="font-display font-bold text-xl text-white">
+              Alu<span className="text-white/80">fab</span>
             </span>
           </Link>
 
@@ -97,17 +99,14 @@ export default function Navbar() {
                 key={link.label}
                 to={link.href}
                 className={({ isActive }) =>
-                  `relative px-3 py-2 text-sm font-medium transition-colors duration-200 ${
-                    isActive ? "text-primary" : "hover:text-primary"
-                  }`
+                  `relative px-3 py-2 text-sm font-medium transition-colors duration-200 text-white/90 hover:text-white`
                 }
-                style={({ isActive }) => ({ color: isActive ? 'var(--primary)' : 'var(--text)' })}
               >
                 {({ isActive }) => (
                   <>
                     {link.label}
                     <span
-                      className={`absolute bottom-0 left-3 right-3 h-px bg-primary transition-transform duration-200 origin-left ${
+                      className={`absolute bottom-0 left-3 right-3 h-px bg-white transition-transform duration-200 origin-left ${
                         isActive ? "scale-x-100" : "scale-x-0 hover:scale-x-100"
                       }`}
                     />
@@ -121,15 +120,14 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-4">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg transition-colors hover:bg-accent/10"
-              style={{ color: 'var(--text)' }}
+              className="p-2 rounded-lg transition-colors hover:bg-white/10 text-white"
               aria-label="Toggle dark mode"
             >
               {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
             </button>
             <Link
               to="/testimonials-contact"
-              className="btn-primary text-xs"
+              className="px-4 py-2 rounded-lg bg-white text-primary font-semibold text-xs tracking-wide hover:bg-white/90 transition-colors duration-200"
             >
               Request Quote
             </Link>
@@ -137,8 +135,7 @@ export default function Navbar() {
 
           {/* Mobile menu button */}
           <button
-            className="lg:hidden p-2 rounded-lg transition-colors hover:bg-accent/10"
-            style={{ color: 'var(--text)' }}
+            className="lg:hidden p-2 rounded-lg transition-colors hover:bg-white/10 text-white"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -156,25 +153,23 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="fixed inset-x-0 top-0 z-[99] lg:hidden flex flex-col overflow-hidden"
-            style={{ background: 'var(--surface)' }}
+            style={{ backgroundColor: 'var(--primary)' }}
           >
             <div className="flex items-center justify-between px-6 py-5 border-b"
               style={{ borderColor: 'var(--border)' }}>
-              <span className="font-display font-bold text-xl" style={{ color: 'var(--text)' }}>
-                Alu<span className="text-primary">fab</span>
+              <span className="font-display font-bold text-xl text-white">
+                Alu<span className="text-white/80">fab</span>
               </span>
               <div className="flex items-center gap-2">
                 <button
                   onClick={toggleTheme}
-                  className="p-2 rounded-lg transition-colors hover:bg-accent/10"
-                  style={{ color: 'var(--text)' }}
+                  className="p-2 rounded-lg transition-colors hover:bg-white/10 text-white"
                   aria-label="Toggle dark mode"
                 >
                   {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
                 </button>
                 <button
-                  className="p-2 rounded-lg transition-colors hover:bg-accent/10"
-                  style={{ color: 'var(--text)' }}
+                  className="p-2 rounded-lg transition-colors hover:bg-white/10 text-white"
                   onClick={() => setMobileOpen(false)}
                   aria-label="Close menu"
                 >
@@ -194,15 +189,8 @@ export default function Navbar() {
                   <NavLink
                     to={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className={({ isActive }) =>
-                      `block py-3.5 border-b text-base font-medium transition-colors duration-200 ${
-                        isActive ? "text-primary" : "hover:text-primary"
-                      }`
-                    }
-                    style={({ isActive }) => ({
-                      color: isActive ? 'var(--primary)' : 'var(--text)',
-                      borderColor: 'var(--border)'
-                    })}
+                    className="block py-3.5 border-b text-base font-medium text-white/90 hover:text-white transition-colors duration-200"
+                    style={{ borderColor: 'rgba(255,255,255,0.15)' }}
                   >
                     {link.label}
                   </NavLink>
@@ -214,7 +202,7 @@ export default function Navbar() {
               <Link
                 to="/testimonials-contact"
                 onClick={() => setMobileOpen(false)}
-                className="btn-primary w-full justify-center"
+                className="block w-full text-center py-3 rounded-lg bg-white text-primary font-semibold text-sm tracking-wide hover:bg-white/90 transition-colors duration-200"
               >
                 Request Quote
               </Link>

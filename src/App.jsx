@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
-import ScrollProgress from "./components/shared/ScrollProgress";
 import FloatingButtons from "./components/shared/FloatingButtons";
 import ScrollToTop from "./components/shared/ScrollToTop";
 
@@ -22,7 +21,6 @@ const PageLoader = () => (
 function App() {
   return (
     <BrowserRouter>
-      <ScrollProgress />
       <Navbar />
       <ScrollToTop />
       

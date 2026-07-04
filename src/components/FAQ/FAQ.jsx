@@ -16,12 +16,18 @@ function FAQItem({ faq, isOpen, onToggle }) {
         aria-expanded={isOpen}
         aria-controls={`faq-${faq.id}`}
       >
-        <span className={`font-medium text-base transition-colors duration-300 ${isOpen ? "text-primary" : ""}`} style={{ color: isOpen ? undefined : "var(--text)" }}>
+        <span
+          className={`font-medium text-base transition-colors duration-300 ${isOpen ? "text-primary" : ""}`}
+          style={{ color: isOpen ? undefined : "var(--text)" }}
+        >
           {faq.question}
         </span>
-        <span className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 ${
-          isOpen ? "bg-primary text-white" : "bg-accent/20 text-text/50"
-        }`}>
+        <span
+          className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 ${
+            isOpen ? "bg-primary text-white" : "bg-accent/20"
+          }`}
+          style={{ color: isOpen ? "white" : "var(--muted)" }}
+        >
           {isOpen ? <Minus size={14} /> : <Plus size={14} />}
         </span>
       </button>
