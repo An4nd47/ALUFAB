@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import { useSEO } from "../hooks/useSEO";
 
 const Products = lazy(() => import("../components/Products/Products"));
 const Projects = lazy(() => import("../components/Projects/Projects"));
@@ -17,15 +18,21 @@ const SectionSkeleton = () => (
 );
 
 export default function ProductsProjectsPage() {
+  useSEO({
+    title: "Aluminium Products & Projects – Windows, Doors, Cabinets | Alufab Kerala",
+    description:
+      "Explore Alufab's full range of aluminium and uPVC products: sliding windows, casement windows, bi-fold doors, glass partitions, kitchen cabinets, curtain walls and more. View our completed projects in Kerala and UAE.",
+  });
+
   return (
     <Suspense fallback={<SectionSkeleton />}>
-      <div className="pt-20">
+      <main className="pt-20">
         <Products />
         <div className="section-divider container-custom" />
         <Projects />
         <div className="section-divider container-custom" />
         <Gallery />
-      </div>
+      </main>
     </Suspense>
   );
 }

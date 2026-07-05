@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import { useSEO } from "../hooks/useSEO";
 
 const About = lazy(() => import("../components/About/About"));
 const WhyChooseUs = lazy(() => import("../components/WhyChooseUs/WhyChooseUs"));
@@ -16,13 +17,19 @@ const SectionSkeleton = () => (
 );
 
 export default function AboutPage() {
+  useSEO({
+    title: "About Alufab – 15+ Years of Aluminium & uPVC Excellence | Kerala",
+    description:
+      "Learn about Alufab, Kerala's most trusted aluminium and uPVC fabrication company. ISO-certified, serving India and the GCC with 500+ completed projects since 2009.",
+  });
+
   return (
     <Suspense fallback={<SectionSkeleton />}>
-      <div className="pt-20">
+      <main className="pt-20">
         <About />
         <div className="section-divider container-custom" />
         <WhyChooseUs />
-      </div>
+      </main>
     </Suspense>
   );
 }

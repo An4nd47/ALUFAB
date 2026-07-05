@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import { useSEO } from "../hooks/useSEO";
 
 const Services = lazy(() => import("../components/Services/Services"));
 const Process = lazy(() => import("../components/Process/Process"));
@@ -16,13 +17,19 @@ const SectionSkeleton = () => (
 );
 
 export default function ServicesPage() {
+  useSEO({
+    title: "Aluminium & uPVC Services – Design, Manufacturing & Installation | Alufab",
+    description:
+      "End-to-end aluminium and uPVC services: design consultation, site measurement, custom manufacturing, professional installation, repair and annual maintenance contracts across Kerala and UAE.",
+  });
+
   return (
     <Suspense fallback={<SectionSkeleton />}>
-      <div className="pt-20">
+      <main className="pt-20">
         <Services />
         <div className="section-divider container-custom" />
         <Process />
-      </div>
+      </main>
     </Suspense>
   );
 }

@@ -14,7 +14,7 @@ export default function FloatingButtons() {
 
   const navigate = useNavigate();
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
-  const navigateToContact = () => navigate("/testimonials-contact");
+  const navigateToContact = () => navigate("/testimonials-contact#contact");
 
   return (
     <>

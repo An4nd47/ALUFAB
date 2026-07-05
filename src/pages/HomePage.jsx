@@ -1,15 +1,22 @@
+import { useSEO } from "../hooks/useSEO";
 import Hero from "../components/Hero/Hero";
 import AboutPreview from "../components/Hero/AboutPreview";
 import ServicesPreview from "../components/Hero/ServicesPreview";
 
 export default function HomePage() {
+  useSEO({
+    title: "Alufab – Premium Aluminium & uPVC Fabrication | Kerala & UAE",
+    description:
+      "Kerala's premier aluminium and uPVC fabrication company. Premium windows, doors, cabinets and architectural fabrication for modern living and commercial excellence.",
+  });
+
   return (
-    <div>
+    <main>
       <Hero />
       <div className="section-divider container-custom" />
       <AboutPreview />
       <div className="section-divider container-custom" />
       <ServicesPreview />
-    </div>
+    </main>
   );
 }

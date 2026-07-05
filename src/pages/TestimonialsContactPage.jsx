@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import { useSEO } from "../hooks/useSEO";
 
 const Testimonials = lazy(() => import("../components/Testimonials/Testimonials"));
 const FAQ = lazy(() => import("../components/FAQ/FAQ"));
@@ -17,15 +18,21 @@ const SectionSkeleton = () => (
 );
 
 export default function TestimonialsContactPage() {
+  useSEO({
+    title: "Contact Alufab – Get a Free Quote | Aluminium & uPVC Fabrication Kerala",
+    description:
+      "Contact Alufab for a free aluminium or uPVC fabrication quote. Read client testimonials from Kerala and UAE projects. Get answers to common questions about our products and services.",
+  });
+
   return (
     <Suspense fallback={<SectionSkeleton />}>
-      <div className="pt-20">
-        <Testimonials />
+      <main className="pt-20">
+        <Contact />
         <div className="section-divider container-custom" />
         <FAQ />
         <div className="section-divider container-custom" />
-        <Contact />
-      </div>
+        <Testimonials />
+      </main>
     </Suspense>
   );
 }

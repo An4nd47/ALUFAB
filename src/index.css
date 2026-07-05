@@ -224,10 +224,6 @@
     @apply block w-12 h-0.5 bg-primary my-4;
   }
 
-  /* Legacy gold-line alias */
-  .gold-line {
-    @apply block w-16 h-0.5 bg-primary my-4;
-  }
 
   /* Tag chip */
   .tag-chip {
@@ -292,41 +288,11 @@
       rgba(11, 15, 25, 0) 100%);
 }
 
-/* ── Navbar (Scrolled State) ──────────────────────────────────────── */
-.navbar-glass {
-  background-color: color-mix(in srgb, var(--surface) 85%, transparent);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-}
-
 /* ── Section divider ──────────────────────────────────────────────── */
 .section-divider {
   height: 1px;
   background-color: var(--border);
   @apply my-0;
-}
-
-/* ── Timeline line ────────────────────────────────────────────────── */
-.timeline-line {
-  width: 2px;
-  background: var(--border);
-}
-
-/* ── Image reveal ─────────────────────────────────────────────────── */
-.img-reveal {
-  overflow: hidden;
-}
-
-.img-reveal img {
-  transform: scale(1.1);
-  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.img-reveal:hover img,
-.img-reveal.revealed img {
-  transform: scale(1);
 }
 
 /* ── Filter tabs ──────────────────────────────────────────────────── */
@@ -445,11 +411,6 @@
   @apply -translate-y-0.5;
 }
 
-/* ── Magnetic button ──────────────────────────────────────────────── */
-.magnetic-btn {
-  display: inline-block;
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-}
 
 /* ── Overflow hidden helpers ──────────────────────────────────────── */
 .overflow-clip {

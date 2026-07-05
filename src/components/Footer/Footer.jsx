@@ -42,7 +42,7 @@ export default function Footer() {
             </div>
             <div className="flex gap-3 flex-shrink-0">
               <Link
-                to="/testimonials-contact"
+                to="/testimonials-contact#contact"
                 className="btn-primary"
               >
                 Get Free Quote <ArrowRight size={16} />
