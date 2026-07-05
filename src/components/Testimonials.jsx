@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
-import { testimonials } from "../../data/testimonials";
-import { fadeUp } from "../../animations/variants";
+import { testimonials } from "../data/testimonials";
+import { fadeUp } from "../utils";
 
 function StarRating({ rating }) {
   return (

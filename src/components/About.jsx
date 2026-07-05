@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { CheckCircle, Award, Users, Building2 } from "lucide-react";
-import { fadeLeft, fadeRight, staggerContainer, fadeUp } from "../../animations/variants";
-import { useCounter } from "../../hooks/useCounter";
+import { fadeLeft, fadeRight, staggerContainer, fadeUp } from "../utils";
+import { useCounter } from "../useCounter";
 
 const stats = [
   { end: 15, suffix: "+", label: "Years Experience", icon: Award },

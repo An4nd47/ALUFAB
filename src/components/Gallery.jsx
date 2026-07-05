@@ -1,8 +1,8 @@
 import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { X, ZoomIn } from "lucide-react";
-import { galleryItems, galleryCategories } from "../../data/projects";
-import { staggerContainer, scaleIn } from "../../animations/variants";
+import { galleryItems, galleryCategories } from "../data/projects";
+import { staggerContainer, scaleIn } from "../utils";
 
 function Lightbox({ item, onClose }) {
   return (

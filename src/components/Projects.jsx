@@ -1,8 +1,8 @@
 import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { MapPin, Calendar, ArrowRight } from "lucide-react";
-import { projects, projectCategories } from "../../data/projects";
-import { staggerContainer, fadeUp } from "../../animations/variants";
+import { projects, projectCategories } from "../data/projects";
+import { staggerContainer, fadeUp } from "../utils";
 
 function ProjectCard({ project }) {
   const [hovered, setHovered] = useState(false);

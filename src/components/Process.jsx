@@ -3,7 +3,7 @@ import { motion, useInView } from "framer-motion";
 import {
   MessageSquare, Ruler, Pencil, Settings, Wrench, CheckCircle
 } from "lucide-react";
-import { fadeUp, staggerContainer } from "../../animations/variants";
+import { fadeUp, staggerContainer } from "../utils";
 
 const steps = [
   {

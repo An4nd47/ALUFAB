@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, Send, ArrowRight } from "lucide-react";
-import { fadeLeft, fadeRight } from "../../animations/variants";
+import { fadeLeft, fadeRight } from "../utils";
 
 const contactInfo = [
   {

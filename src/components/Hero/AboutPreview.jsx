@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, Award, Building2, Users, CheckCircle } from "lucide-react";
-import { fadeLeft, fadeRight } from "../../animations/variants";
+import { fadeLeft, fadeRight } from "../../utils";
 
 const highlights = [
   "ISO-certified premium aluminium profiles",

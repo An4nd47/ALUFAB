@@ -1,8 +1,8 @@
 import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
-import { faqs } from "../../data/faqs";
-import { staggerContainer, fadeUp } from "../../animations/variants";
+import { faqs } from "../data/faqs";
+import { staggerContainer, fadeUp } from "../utils";
 
 function FAQItem({ faq, isOpen, onToggle }) {
   return (

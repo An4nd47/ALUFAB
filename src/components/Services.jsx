@@ -4,8 +4,8 @@ import {
   Pencil, Ruler, Settings, Wrench, RefreshCw,
   Shield, Building2, Home
 } from "lucide-react";
-import { services } from "../../data/services";
-import { staggerContainer, fadeUp } from "../../animations/variants";
+import { services } from "../data/services";
+import { staggerContainer, fadeUp } from "../utils";
 
 const iconMap = {
   Pencil, Ruler, Settings, Wrench, RefreshCw, Shield, Building2, Home,

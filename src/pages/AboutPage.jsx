@@ -1,8 +1,8 @@
 import { lazy, Suspense } from "react";
-import { useSEO } from "../hooks/useSEO";
+import { useSEO } from "../useSEO";
 
-const About = lazy(() => import("../components/About/About"));
-const WhyChooseUs = lazy(() => import("../components/WhyChooseUs/WhyChooseUs"));
+const About = lazy(() => import("../components/About"));
+const WhyChooseUs = lazy(() => import("../components/WhyChooseUs"));
 
 const SectionSkeleton = () => (
   <div className="section-padding container-custom">

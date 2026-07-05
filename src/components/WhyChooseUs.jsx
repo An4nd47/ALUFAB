@@ -4,7 +4,7 @@ import {
   Star, Shield, Droplets, Zap, Wrench, Palette,
   DollarSign, Award, Cpu, Users
 } from "lucide-react";
-import { staggerContainer, fadeUp } from "../../animations/variants";
+import { staggerContainer, fadeUp } from "../utils";
 
 const features = [
   { icon: Star, title: "High Quality Materials", desc: "Premium-grade 6063 T5 aluminium alloys and certified uPVC profiles sourced from trusted suppliers." },

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { heroTextVariant } from "../../animations/variants";
+import { heroTextVariant } from "../../utils";
 
 // Particle canvas component
 function ParticleCanvas({ isDark }) {

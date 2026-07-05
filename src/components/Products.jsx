@@ -2,8 +2,8 @@ import { useState, useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { products } from "../../data/products";
-import { staggerContainer, fadeUp } from "../../animations/variants";
+import { products } from "../data/products";
+import { staggerContainer, fadeUp } from "../utils";
 
 const categories = [
   { id: "all", label: "All Products" },

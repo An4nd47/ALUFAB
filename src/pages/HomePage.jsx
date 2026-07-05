@@ -1,4 +1,4 @@
-import { useSEO } from "../hooks/useSEO";
+import { useSEO } from "../useSEO";
 import Hero from "../components/Hero/Hero";
 import AboutPreview from "../components/Hero/AboutPreview";
 import ServicesPreview from "../components/Hero/ServicesPreview";

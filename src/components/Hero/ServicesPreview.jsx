@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, Pencil, Ruler, Settings, Wrench } from "lucide-react";
-import { staggerContainer, fadeUp } from "../../animations/variants";
+import { staggerContainer, fadeUp } from "../../utils";
 
 const featuredServices = [
   {
