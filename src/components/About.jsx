@@ -6,9 +6,9 @@ import { fadeLeft, fadeRight, staggerContainer, fadeUp } from "../utils";
 import { useCounter } from "../useCounter";
 
 const stats = [
-  { end: 15, suffix: "+", label: "Years Experience", icon: Award },
-  { end: 500, suffix: "+", label: "Projects Completed", icon: Building2 },
-  { end: 200, suffix: "+", label: "Happy Clients", icon: Users },
+  { end: 5, suffix: "+", label: "Years Experience", icon: Award },
+  { end: 200, suffix: "+", label: "Projects Completed", icon: Building2 },
+  { end: 100, suffix: "+", label: "Happy Clients", icon: Users },
   { end: 50, suffix: "+", label: "Commercial Works", icon: Building2 },
 ];
 
@@ -90,7 +90,7 @@ export default function About() {
               transition={{ delay: 0.5, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
               className="absolute -bottom-6 -right-6 flat-card p-6 w-40 text-center z-10"
             >
-              <div className="text-primary font-bold text-3xl font-display">15+</div>
+              <div className="text-primary font-bold text-3xl font-display"> 5+</div>
               <div className="text-xs mt-1" style={{ color: 'var(--muted)' }}>Years of Precision</div>
             </motion.div>
             {/* Corner accent */}
@@ -110,7 +110,7 @@ export default function About() {
               <span className="text-primary"> uPVC Specialists</span>
             </h3>
             <p className="leading-relaxed mb-6" style={{ color: 'var(--muted)' }}>
-              Founded over 15 years ago, Alufab has grown into one of Kerala&apos;s most trusted names
+              Founded over 5 years ago, Alufab has grown into one of Kerala&apos;s most trusted names
               in premium aluminium and uPVC fabrication. From humble beginnings, we have expanded
               our operations to serve clients across India and the UAE/GCC region.
             </p>

@@ -135,7 +135,7 @@ export default function Hero() {
         className="absolute top-1/4 right-[10%] z-10 hidden lg:block"
       >
         <div className="flat-card p-5 w-44">
-          <div className="text-primary font-bold text-3xl mb-1">500+</div>
+          <div className="text-primary font-bold text-3xl mb-1">200+</div>
           <div className="text-muted text-xs">Projects Completed</div>
           <div className="w-8 h-0.5 bg-primary mt-2" />
         </div>
@@ -147,7 +147,7 @@ export default function Hero() {
         className="absolute bottom-1/3 right-[15%] z-10 hidden lg:block"
       >
         <div className="flat-card p-5 w-44">
-          <div className="text-primary font-bold text-3xl mb-1">15+</div>
+          <div className="text-primary font-bold text-3xl mb-1">5+</div>
           <div className="text-muted text-xs">Years of Excellence</div>
           <div className="w-8 h-0.5 bg-primary mt-2" />
         </div>
@@ -160,7 +160,7 @@ export default function Hero() {
           className="absolute top-1/3 left-[5%] z-10 hidden lg:block"
         >
           <div className="flat-card p-5 w-44">
-            <div className="text-primary font-bold text-3xl mb-1">200+</div>
+            <div className="text-primary font-bold text-3xl mb-1">100+</div>
             <div className="text-muted text-xs">Happy Clients</div>
             <div className="w-8 h-0.5 bg-primary mt-2" />
           </div>

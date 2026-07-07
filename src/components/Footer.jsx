@@ -48,7 +48,7 @@ export default function Footer() {
                 Get Free Quote <ArrowRight size={16} />
               </Link>
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/919946138681"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-outline"
@@ -143,19 +143,19 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin size={14} className="text-primary mt-0.5 flex-shrink-0" />
                 <span className="text-sm" style={{ color: 'var(--muted)' }}>
-                  Industrial Area, Calicut (Kozhikode), Kerala 673001, India
+                  Malapallipuram, near Chenthuruthi Bridge Road, Poyya, Mala, Kerala 680732, India
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={14} className="text-primary flex-shrink-0" />
-                <a href="tel:+919876543210" className="text-sm transition-colors hover:text-primary" style={{ color: 'var(--muted)' }}>
-                  +91 98765 43210
+                <a href="tel:+919946138681" className="text-sm transition-colors hover:text-primary" style={{ color: 'var(--muted)' }}>
+                  +91 99461 38681
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={14} className="text-primary flex-shrink-0" />
-                <a href="mailto:info@alufab.in" className="text-sm transition-colors hover:text-primary" style={{ color: 'var(--muted)' }}>
-                  info@alufab.in
+                <a href="mailto:alufabenterprises@gmail.com" className="text-sm transition-colors hover:text-primary" style={{ color: 'var(--muted)' }}>
+                  alufabenterprises@gmail.com
                 </a>
               </li>
             </ul>

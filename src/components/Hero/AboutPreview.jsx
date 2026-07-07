@@ -50,7 +50,7 @@ export default function AboutPreview() {
               transition={{ delay: 0.5, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
               className="absolute -bottom-6 -right-6 flat-card p-6 w-44 text-center z-10"
             >
-              <div className="text-primary font-bold text-3xl font-display">15+</div>
+              <div className="text-primary font-bold text-3xl font-display">5+</div>
               <div className="text-xs mt-1" style={{ color: 'var(--muted)' }}>Years of Precision</div>
               <div className="w-8 h-0.5 bg-primary mx-auto mt-2" />
             </motion.div>
@@ -73,7 +73,7 @@ export default function AboutPreview() {
               <span className="text-primary">Crafted for Excellence</span>
             </h2>
             <p className="leading-relaxed mb-6" style={{ color: 'var(--muted)' }}>
-              Founded over 15 years ago, Alufab has grown into one of Kerala&apos;s most trusted names
+              Founded over 5 years ago, Alufab has grown into one of Kerala&apos;s most trusted names
               in premium aluminium and uPVC fabrication. Our state-of-the-art facility and experienced
               craftsmen deliver world-class products meeting international standards.
             </p>
@@ -91,9 +91,9 @@ export default function AboutPreview() {
             {/* Stats row */}
             <div className="flex gap-8 mb-8 py-6 border-t border-b" style={{ borderColor: 'var(--border)' }}>
               {[
-                { icon: Award, num: "15+", label: "Years" },
-                { icon: Building2, num: "500+", label: "Projects" },
-                { icon: Users, num: "200+", label: "Clients" },
+                { icon: Award, num: "5+", label: "Years" },
+                { icon: Building2, num: "200+", label: "Projects" },
+                { icon: Users, num: "100+", label: "Clients" },
               ].map((s) => (
                 <div key={s.label} className="text-center">
                   <s.icon size={20} className="text-primary mx-auto mb-1" />

@@ -7,17 +7,17 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Our Office",
-    lines: ["Alufab Industries, Industrial Area", "Calicut (Kozhikode), Kerala 673001, India"],
+    lines: ["Malapallipuram, near Chenthuruthi Bridge Road", "Poyya, Mala, Kerala 680732, India"],
   },
   {
     icon: Phone,
     title: "Phone & WhatsApp",
-    lines: ["+91 98765 43210", "+91 90123 45678"],
+    lines: ["+91 99461 38681"],
   },
   {
     icon: Mail,
     title: "Email",
-    lines: ["info@alufab.in", "sales@alufab.in"],
+    lines: ["anandms019@gmail.com"]
   },
   {
     icon: Clock,
@@ -41,10 +41,33 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate submission
-    await new Promise((r) => setTimeout(r, 1500));
-    setLoading(false);
-    setSubmitted(true);
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/alufabenterprises@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          _subject: "New Project Inquiry - Alufab",
+          Name: formData.name,
+          "Phone / WhatsApp": formData.phone,
+          "Email Address": formData.email || "Not provided",
+          "Project Type": formData.projectType,
+          "Message / Details": formData.message || "No message details provided"
+        })
+      });
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        alert("Failed to send message. Please try again or contact us directly.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("An error occurred. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -141,7 +164,7 @@ export default function Contact() {
                       required
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 9946138681"
                       className="form-input"
                     />
                   </div>
@@ -155,7 +178,7 @@ export default function Contact() {
                     type="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="your@email.com"
+                    placeholder="yourmail@gmail.com"
                     className="form-input"
                   />
                 </div>
@@ -241,7 +264,7 @@ export default function Contact() {
             <div className="flex-1 min-h-[240px] rounded-xl overflow-hidden relative" style={{ border: '1px solid var(--border)', background: 'var(--background)' }}>
               <iframe
                 title="Alufab Location Map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125323.18063028218!2d75.73788!3d11.25850!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65938563d4747%3A0x323333bde3b7a18!2sKozhikode%2C%20Kerala!5e0!3m2!1sen!2sin!4v1609000000000!5m2!1sen!2sin"
+                src="https://maps.google.com/maps?q=Alufab%20uPVC%20Windows%20%26%20Doors,%20Malapallipuram,%20near%20Chenthuruthi%20Bridge,%20Road,%20Poyya,%20Mala,%20Kerala%20680732,%20India&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0, filter: "grayscale(20%)" }}
@@ -259,7 +282,7 @@ export default function Contact() {
                 <p className="text-sm" style={{ color: "var(--muted)" }}>Get a quick response on WhatsApp</p>
               </div>
               <a
-                href="https://wa.me/919876543210?text=Hi%2C%20I%20am%20interested%20in%20getting%20a%20quote%20from%20Alufab."
+                href="https://wa.me/919946138681?text=Hi%2C%20I%20am%20interested%20in%20getting%20a%20quote%20from%20Alufab."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-shrink-0 px-6 py-3 rounded-lg bg-[#25D366] text-white font-semibold text-sm

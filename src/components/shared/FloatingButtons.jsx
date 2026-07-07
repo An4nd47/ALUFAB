@@ -20,7 +20,7 @@ export default function FloatingButtons() {
     <>
       {/* WhatsApp */}
       <motion.a
-        href="https://wa.me/919876543210?text=Hi%2C%20I%20am%20interested%20in%20getting%20a%20quote%20from%20Alufab."
+        href="https://wa.me/919946138681?text=Hi%2C%20I%20am%20interested%20in%20getting%20a%20quote%20from%20Alufab."
         target="_blank"
         rel="noopener noreferrer"
         initial={{ scale: 0, opacity: 0 }}

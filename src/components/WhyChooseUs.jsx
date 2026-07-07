@@ -14,9 +14,9 @@ const features = [
   { icon: Wrench, title: "Precision Installation", desc: "Factory-trained installation teams ensure perfect fitting with professional finishing every time." },
   { icon: Palette, title: "Custom Designs", desc: "Bespoke designs in 200+ colour options to match any architectural vision or interior theme." },
   { icon: DollarSign, title: "Affordable Pricing", desc: "Premium quality products at competitive pricing with flexible payment options available." },
-  { icon: Award, title: "Warranty Support", desc: "5-year product warranty with dedicated after-sales support and maintenance contracts." },
+  { icon: Award, title: "Free Site Visit", desc: "Expert technicians visit your site at no cost to assess, measure, and recommend the best solutions." },
   { icon: Cpu, title: "Modern Equipment", desc: "State-of-the-art CNC and automated manufacturing equipment for precision at scale." },
-  { icon: Users, title: "Experienced Team", desc: "Over 15 years of expertise with a skilled team of engineers, designers and craftsmen." },
+  { icon: Users, title: "Experienced Team", desc: "Over 5 years of expertise with a skilled team of engineers, designers and craftsmen." },
 ];
 
 function FeatureCard({ feature, index }) {
