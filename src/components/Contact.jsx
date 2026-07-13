@@ -17,7 +17,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    lines: ["anandms019@gmail.com"]
+    lines: ["alufabenterprises@gmail.com"]
   },
   {
     icon: Clock,
@@ -261,7 +261,7 @@ export default function Contact() {
             </div>
 
             {/* Map placeholder */}
-            <div className="flex-1 min-h-[240px] rounded-xl overflow-hidden relative" style={{ border: '1px solid var(--border)', background: 'var(--background)' }}>
+            <div className="flex-1 min-h-[240px] rounded-xl overflow-hidden relative group" style={{ border: '1px solid var(--border)', background: 'var(--background)' }}>
               <iframe
                 title="Alufab Location Map"
                 src="https://maps.google.com/maps?q=Alufab%20uPVC%20Windows%20%26%20Doors,%20Malapallipuram,%20near%20Chenthuruthi%20Bridge,%20Road,%20Poyya,%20Mala,%20Kerala%20680732,%20India&t=&z=15&ie=UTF8&iwloc=&output=embed"
@@ -273,6 +273,17 @@ export default function Contact() {
                 referrerPolicy="no-referrer-when-downgrade"
                 className="absolute inset-0 w-full h-full"
               />
+              <a 
+                href="https://www.google.com/maps/search/?api=1&query=Alufab+uPVC+Windows+%26+Doors,+Malapallipuram,+near+Chenthuruthi+Bridge,+Road,+Poyya,+Mala,+Kerala+680732,+India" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="absolute inset-0 z-10 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <div className="bg-primary text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2">
+                  <MapPin size={20} />
+                  Open in Google Maps
+                </div>
+              </a>
             </div>
 
             {/* CTA Banner */}
