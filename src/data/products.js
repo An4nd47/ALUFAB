@@ -104,14 +104,6 @@ export const products = [
     tag: "structural",
   },
   {
-    id: 14,
-    category: "Structural",
-    title: "Structural Fabrication",
-    description: "Heavy-duty structural aluminium fabrication for industrial and commercial applications.",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80",
-    tag: "structural",
-  },
-  {
     id: 15,
     category: "Glass Works",
     title: "Frameless Glass Works",

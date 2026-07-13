@@ -273,10 +273,10 @@ export default function Contact() {
                 referrerPolicy="no-referrer-when-downgrade"
                 className="absolute inset-0 w-full h-full"
               />
-              <a 
-                href="https://www.google.com/maps/search/?api=1&query=Alufab+uPVC+Windows+%26+Doors,+Malapallipuram,+near+Chenthuruthi+Bridge,+Road,+Poyya,+Mala,+Kerala+680732,+India" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Alufab+uPVC+Windows+%26+Doors,+Malapallipuram,+near+Chenthuruthi+Bridge,+Road,+Poyya,+Mala,+Kerala+680732,+India"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="absolute inset-0 z-10 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               >
                 <div className="bg-primary text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2">
