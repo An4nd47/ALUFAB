@@ -18,9 +18,9 @@ const SectionSkeleton = () => (
 
 export default function ServicesPage() {
   useSEO({
-    title: "Aluminium & uPVC Services – Design, Manufacturing & Installation | Alufab",
+    title: "uPVC Services – Design, Manufacturing & Installation | Alufab",
     description:
-      "End-to-end aluminium and uPVC services: design consultation, site measurement, custom manufacturing, professional installation, repair and annual maintenance contracts across Kerala and UAE.",
+      "End-to-end uPVC services: design consultation, site measurement, custom manufacturing, professional installation, repair and annual maintenance contracts across Kerala and UAE.",
   });
 
   return (

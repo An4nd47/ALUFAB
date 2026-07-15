@@ -8,16 +8,18 @@ const contactInfo = [
     icon: MapPin,
     title: "Our Office",
     lines: ["Malapallipuram, near Chenthuruthi Bridge Road", "Poyya, Mala, Kerala 680732, India"],
+    href: "https://www.google.com/maps/search/?api=1&query=Alufab+uPVC+Windows+%26+Doors,+Malapallipuram,+near+Chenthuruthi+Bridge,+Road,+Poyya,+Mala,+Kerala+680732,+India"
   },
   {
     icon: Phone,
     title: "Phone & WhatsApp",
     lines: ["+91 99461 38681"],
+    href: "tel:+919946138681"
   },
   {
     icon: Mail,
     title: "Email",
-    lines: ["alufabenterprises@gmail.com"]
+    lines: ["alufabenterprises@gmail.com"],
   },
   {
     icon: Clock,
@@ -246,7 +248,7 @@ export default function Contact() {
           >
             {/* Contact info cards */}
             <div className="grid sm:grid-cols-2 gap-4">
-              {contactInfo.map(({ icon: Icon, title, lines }) => (
+              {contactInfo.map(({ icon: Icon, title, lines, href }) => (
                 <div key={title} className="glass-card p-5 group hover:border-primary/20 transition-all duration-300">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3 
                                   group-hover:bg-primary/20 transition-colors">
@@ -254,7 +256,11 @@ export default function Contact() {
                   </div>
                   <h4 className="text-xs font-medium uppercase tracking-wider mb-2" style={{ color: "var(--muted)" }}>{title}</h4>
                   {lines.map((l) => (
-                    <p key={l} className="text-sm" style={{ color: "var(--text)" }}>{l}</p>
+                    href ? (
+                      <a key={l} href={href} target={href.startsWith('http') ? "_blank" : undefined} rel={href.startsWith('http') ? "noopener noreferrer" : undefined} className="text-sm block hover:text-primary transition-colors" style={{ color: "var(--text)" }}>{l}</a>
+                    ) : (
+                      <p key={l} className="text-sm block" style={{ color: "var(--text)" }}>{l}</p>
+                    )
                   ))}
                 </div>
               ))}

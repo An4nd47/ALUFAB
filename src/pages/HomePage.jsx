@@ -5,9 +5,9 @@ import ServicesPreview from "../components/Hero/ServicesPreview";
 
 export default function HomePage() {
   useSEO({
-    title: "Alufab – Premium Aluminium & uPVC Fabrication | Kerala & UAE",
+    title: "Alufab – Premium uPVC Fabrication | Kerala & UAE",
     description:
-      "Kerala's premier aluminium and uPVC fabrication company. Premium windows, doors, cabinets and architectural fabrication for modern living and commercial excellence.",
+      "Kerala's premier uPVC fabrication company. Premium windows, doors, cabinets and architectural fabrication for modern living and commercial excellence.",
   });
 
   return (

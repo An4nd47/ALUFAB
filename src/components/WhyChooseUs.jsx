@@ -7,9 +7,9 @@ import {
 import { staggerContainer, fadeUp } from "../utils";
 
 const features = [
-  { icon: Star, title: "High Quality Materials", desc: "Premium-grade 6063 T5 aluminium alloys and certified uPVC profiles sourced from trusted suppliers." },
+  { icon: Star, title: "High Quality Materials", desc: "Premium-grade 6063 T5 uPVC alloys and certified uPVC profiles sourced from trusted suppliers." },
   { icon: Shield, title: "Weather Resistant", desc: "All products are engineered to withstand extreme temperatures, humidity, and harsh weather conditions." },
-  { icon: Droplets, title: "Rust & Corrosion Free", desc: "Our aluminium is anodized or powder-coated for complete protection against rust and oxidation." },
+  { icon: Droplets, title: "Rust & Corrosion Free", desc: "Our uPVC is anodized or powder-coated for complete protection against rust and oxidation." },
   { icon: Zap, title: "Energy Efficient", desc: "Thermal break technology and double glazing options reduce energy consumption significantly." },
   { icon: Wrench, title: "Precision Installation", desc: "Factory-trained installation teams ensure perfect fitting with professional finishing every time." },
   { icon: Palette, title: "Custom Designs", desc: "Bespoke designs in 200+ colour options to match any architectural vision or interior theme." },

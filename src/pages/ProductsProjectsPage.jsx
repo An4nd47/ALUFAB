@@ -19,9 +19,9 @@ const SectionSkeleton = () => (
 
 export default function ProductsProjectsPage() {
   useSEO({
-    title: "Aluminium Products & Projects – Windows, Doors, Cabinets | Alufab Kerala",
+    title: "uPVC Products & Projects – Windows, Doors, Cabinets | Alufab Kerala",
     description:
-      "Explore Alufab's full range of aluminium and uPVC products: sliding windows, casement windows, bi-fold doors, glass partitions, kitchen cabinets, curtain walls and more. View our completed projects in Kerala and UAE.",
+      "Explore Alufab's full range of uPVC products: sliding windows, casement windows, bi-fold doors, glass partitions, kitchen cabinets, curtain walls and more. View our completed projects in Kerala and UAE.",
   });
 
   return (

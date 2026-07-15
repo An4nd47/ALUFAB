@@ -15,7 +15,7 @@ export const services = [
     id: 3,
     icon: "Settings",
     title: "Custom Manufacturing",
-    description: "In-house precision manufacturing using premium aluminium and uPVC profiles to your exact specifications.",
+    description: "In-house precision manufacturing using premium uPVC profiles to your exact specifications.",
   },
   {
     id: 4,
@@ -27,7 +27,7 @@ export const services = [
     id: 5,
     icon: "RefreshCw",
     title: "Repair & Restoration",
-    description: "Expert repair services for existing aluminium and uPVC systems to restore peak performance.",
+    description: "Expert repair services for existing uPVC systems to restore peak performance.",
   },
   {
     id: 6,
@@ -45,6 +45,6 @@ export const services = [
     id: 8,
     icon: "Home",
     title: "Residential Solutions",
-    description: "Bespoke aluminium and uPVC solutions designed for luxury homes and residential projects.",
+    description: "Bespoke uPVC solutions designed for luxury homes and residential projects.",
   },
 ];

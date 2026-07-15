@@ -7,8 +7,8 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Products & Projects", href: "/products-projects" },
-  { label: "Testimonials & Contact", href: "/testimonials-contact" },
+  { label: "Products", href: "/products-projects" },
+  { label: "Contact", href: "/testimonials-contact" },
 ];
 
 export default function Navbar() {
@@ -84,9 +84,7 @@ export default function Navbar() {
         <div className="container-custom flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
-              <span className="text-white font-black text-xs tracking-tight">AF</span>
-            </div>
+            <img src="/img/logo.webp" alt="Alufab Logo" className="w-10 h-10 object-contain" />
             <span className="font-display font-bold text-xl text-white">
               Alu<span className="text-white/80">fab</span>
             </span>
@@ -157,9 +155,12 @@ export default function Navbar() {
           >
             <div className="flex items-center justify-between px-6 py-5 border-b"
               style={{ borderColor: 'var(--border)' }}>
-              <span className="font-display font-bold text-xl text-white">
-                Alu<span className="text-white/80">fab</span>
-              </span>
+              <Link to="/" className="flex items-center gap-2.5 group" onClick={() => setMobileOpen(false)}>
+                <img src="/img/logo.webp" alt="Alufab Logo" className="w-10 h-10 object-contain" />
+                <span className="font-display font-bold text-xl text-white">
+                  Alu<span className="text-white/80">fab</span>
+                </span>
+              </Link>
               <div className="flex items-center gap-2">
                 <button
                   onClick={toggleTheme}
