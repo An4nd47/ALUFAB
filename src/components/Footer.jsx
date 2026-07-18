@@ -46,37 +46,40 @@ export default function Footer() {
       window.scrollTo({ top: 0 });
     }
   };
+  const isContactPage = location.pathname === '/testimonials-contact' || location.pathname === '/contact';
   return (
     <footer style={{ background: 'var(--surface)', borderTop: '1px solid var(--border)' }} aria-label="Site footer">
       {/* CTA Banner */}
-      <div style={{ borderBottom: '1px solid var(--border)' }}>
-        <div className="container-custom py-12">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <div>
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-2" style={{ color: 'var(--text)' }}>
-                Ready to Start Your <span className="text-primary">Project?</span>
-              </h2>
-              <p style={{ color: 'var(--muted)' }}>Get a free quote from our experts today.</p>
-            </div>
-            <div className="flex gap-3 flex-shrink-0">
-              <Link
-                to="/testimonials-contact#contact"
-                className="btn-primary"
-              >
-                Get Free Quote <ArrowRight size={16} />
-              </Link>
-              <a
-                href="https://wa.me/919946138681"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline"
-              >
-                WhatsApp Us
-              </a>
+      {!isContactPage && (
+        <div style={{ borderBottom: '1px solid var(--border)' }}>
+          <div className="container-custom py-12">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+              <div>
+                <h2 className="font-display text-3xl md:text-4xl font-bold mb-2" style={{ color: 'var(--text)' }}>
+                  Ready to Start Your <span className="text-primary">Project?</span>
+                </h2>
+                <p style={{ color: 'var(--muted)' }}>Get a free quote from our experts today.</p>
+              </div>
+              <div className="flex gap-3 flex-shrink-0">
+                <Link
+                  to="/testimonials-contact#contact"
+                  className="btn-primary"
+                >
+                  Get Free Quote <ArrowRight size={16} />
+                </Link>
+                <a
+                  href="https://wa.me/919946138681"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-outline"
+                >
+                  WhatsApp Us
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Main footer */}
       <div className="container-custom py-14">
@@ -91,7 +94,7 @@ export default function Footer() {
             </div>
             <p className="text-sm leading-relaxed mb-6" style={{ color: 'var(--muted)' }}>
               Kerala&apos;s premier uPVC fabrication company, serving clients
-              across India and the GCC region with premium quality solutions since 2009.
+              across Kerala with premium quality solutions since 2021.
             </p>
             <div className="flex gap-2">
               {socialLinks.map(({ icon: Icon, href, label }) => (

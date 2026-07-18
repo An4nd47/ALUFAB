@@ -16,8 +16,8 @@ const values = [
   "ISO-certified premium aluminium profiles",
   "In-house design and manufacturing",
   "Experienced & certified installers",
-  "Serving India & GCC countries",
-  "5-year product warranty",
+  "Serving across Kerala",
+  "20-year product warranty",
   "24/7 after-sales support",
 ];
 
@@ -110,9 +110,9 @@ export default function About() {
               <span className="text-primary"> uPVC Specialists</span>
             </h3>
             <p className="leading-relaxed mb-6" style={{ color: 'var(--muted)' }}>
-              Founded over 5 years ago, Alufab has grown into one of Kerala&apos;s most trusted names
+              Functions in Kerala, Alufab has grown into one of the most trusted names
               in premium aluminium and uPVC fabrication. From humble beginnings, we have expanded
-              our operations to serve clients across India and the UAE/GCC region.
+              our operations to serve clients across Kerala.
             </p>
             <p className="leading-relaxed mb-8" style={{ color: 'var(--muted)' }}>
               Our state-of-the-art manufacturing facility, combined with experienced craftsmen and
@@ -141,7 +141,20 @@ export default function About() {
               <div className="p-5 rounded-xl border border-border bg-surface">
                 <h4 className="font-semibold mb-2 text-sm uppercase tracking-wider" style={{ color: 'var(--text)' }}>Our Vision</h4>
                 <p className="text-sm leading-relaxed" style={{ color: 'var(--muted)' }}>
-                  To be the most trusted fabrication company in South Asia and the Gulf region.
+                  To be the most trusted fabrication company in Kerala.
+                </p>
+              </div>
+            </div>
+
+            {/* Sudhakar Partnership */}
+            <div className="mt-8 p-5 rounded-xl border border-border bg-surface flex items-center gap-4">
+              <a href="https://sudhakarind.com/" target="_blank" rel="noopener noreferrer">
+                <img src="/img/sudhakar.png" alt="Sudhakar Profile Systems" className="w-32 object-contain" onError={(e) => { e.target.src = 'https://sudhakarind.com/wp-content/uploads/2021/08/Sudhakar-Logo.png' }} />
+              </a>
+              <div>
+                <h4 className="font-semibold text-sm uppercase tracking-wider mb-1" style={{ color: 'var(--text)' }}>Materials Brought From</h4>
+                <p className="text-sm" style={{ color: 'var(--muted)' }}>
+                  Our high-quality materials are exclusively brought from <a href="https://sudhakarind.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Sudhakar Profile Systems</a>.
                 </p>
               </div>
             </div>

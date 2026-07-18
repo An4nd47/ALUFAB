@@ -12,7 +12,7 @@ export const faqs = [
   {
     id: 3,
     question: "Do you offer warranty on your products?",
-    answer: "Yes, we provide a 5-year warranty on all our uPVC products covering manufacturing defects. Hardware and accessories carry a 2-year warranty. We also offer optional extended warranty packages.",
+    answer: "Yes, we provide a 20-year warranty on all our uPVC products covering manufacturing defects. We also offer optional extended warranty packages.",
   },
   {
     id: 4,

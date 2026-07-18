@@ -103,7 +103,7 @@ export default function Projects() {
             className="section-desc mx-auto text-center"
           >
             A curated portfolio of residential, commercial, and luxury projects
-            completed across India and the UAE.
+            completed across Kerala.
           </motion.p>
         </div>
 

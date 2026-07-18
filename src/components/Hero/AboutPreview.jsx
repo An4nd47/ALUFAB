@@ -7,7 +7,7 @@ import { fadeLeft, fadeRight } from "../../utils";
 const highlights = [
   "ISO-certified premium aluminium profiles",
   "In-house design and manufacturing",
-  "Serving India & GCC countries",
+  "Serving across Kerala",
   "5-year product warranty",
 ];
 
