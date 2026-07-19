@@ -13,8 +13,8 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone & WhatsApp",
-    lines: ["+91 99461 38681"],
-    href: "tel:+919946138681"
+    lines: ["+91 99461 38681", "+91 77366 24792"],
+    href: ["tel:+919946138681", "tel:+917736624792"]
   },
   {
     icon: Mail,
@@ -255,13 +255,14 @@ export default function Contact() {
                     <Icon size={18} className="text-primary" />
                   </div>
                   <h4 className="text-xs font-medium uppercase tracking-wider mb-2" style={{ color: "var(--muted)" }}>{title}</h4>
-                  {lines.map((l) => (
-                    href ? (
-                      <a key={l} href={href} target={href.startsWith('http') ? "_blank" : undefined} rel={href.startsWith('http') ? "noopener noreferrer" : undefined} className="text-sm block hover:text-primary transition-colors" style={{ color: "var(--text)" }}>{l}</a>
+                  {lines.map((l, i) => {
+                    const currentHref = Array.isArray(href) ? href[i] : href;
+                    return currentHref ? (
+                      <a key={l} href={currentHref} target={currentHref.startsWith('http') ? "_blank" : undefined} rel={currentHref.startsWith('http') ? "noopener noreferrer" : undefined} className="text-sm block hover:text-primary transition-colors" style={{ color: "var(--text)" }}>{l}</a>
                     ) : (
                       <p key={l} className="text-sm block" style={{ color: "var(--text)" }}>{l}</p>
                     )
-                  ))}
+                  })}
                 </div>
               ))}
             </div>

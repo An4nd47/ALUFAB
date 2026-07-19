@@ -172,10 +172,34 @@ export default function Footer() {
               Contact
             </h3>
             <ul className="space-y-4">
-              <li>
-                <a href="tel:+919946138681" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm transition-colors hover:text-primary group" style={{ color: 'var(--muted)' }}>
-                  <Phone size={14} className="text-primary flex-shrink-0" />
-                  <span className="group-hover:text-primary">+91 99461 38681</span>
+              <li
+                className="flex items-center gap-3 text-sm whitespace-nowrap"
+                style={{ color: "var(--muted)" }}
+              >
+                <Phone size={14} className="text-primary flex-shrink-0" />
+
+                <a
+                  href="tel:+919946138681"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-primary group whitespace-nowrap"
+                >
+                  <span className="group-hover:text-primary whitespace-nowrap">
+                    +91 99461 38681
+                  </span>
+                </a>
+
+                <span>,</span>
+
+                <a
+                  href="tel:+917736624792"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-primary group whitespace-nowrap"
+                >
+                  <span className="group-hover:text-primary whitespace-nowrap">
+                    +91 77366 24792
+                  </span>
                 </a>
               </li>
               <li>
