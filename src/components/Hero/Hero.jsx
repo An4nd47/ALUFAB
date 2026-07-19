@@ -128,7 +128,7 @@ export default function Hero() {
         <ParticleCanvas isDark={isDark} />
       </div>
 
-      {/* Floating stat cards — unchanged */}
+      {/* Floating stat cards */}
       <motion.div
         animate={{ y: [0, -12, 0], rotate: [0, 1, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
@@ -153,44 +153,31 @@ export default function Hero() {
         </div>
       </motion.div>
 
-        {/* New floating cards */}
-        <motion.div
-          animate={{ y: [0, -10, 0], rotate: [0, 1, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute top-1/4 left-[25%] z-10 hidden lg:block"
-        >
-          <div className="flat-card p-5 w-48 border-primary/30 border" style={{ background: isDark ? "rgba(250, 249, 246, 0)" : "rgba(250, 249, 246, 0.55)", backdropFilter: "blur(12px)" }}>
-            <div className="text-primary font-bold text-3xl mb-1">20 Years</div>
-            <div className="text-muted text-xs">Product Warranty</div>
-            <div className="w-8 h-0.5 bg-primary mt-2" />
-          </div>
-        </motion.div>
+      <motion.div
+        animate={{ y: [0, 6, 0], rotate: [-0.5, 0.5, -0.5] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        className="absolute top-1/3 left-[5%] z-10 hidden lg:block"
+      >
+        <div className="flat-card p-5 w-44">
+          <div className="text-primary font-bold text-3xl mb-1">100+</div>
+          <div className="text-muted text-xs">Happy Clients</div>
+          <div className="w-8 h-0.5 bg-primary mt-2" />
+        </div>
+      </motion.div>
 
-        <motion.div
-          animate={{ y: [0, 6, 0], rotate: [-0.5, 0.5, -0.5] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute top-1/3 left-[5%] z-10 hidden lg:block"
-        >
-          <div className="flat-card p-5 w-44">
-            <div className="text-primary font-bold text-3xl mb-1">100+</div>
-            <div className="text-muted text-xs">Happy Clients</div>
-            <div className="w-8 h-0.5 bg-primary mt-2" />
-          </div>
-        </motion.div>
+      <motion.div
+        animate={{ y: [0, -8, 0], rotate: [0.5, -0.5, 0.5] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2.5 }}
+        className="absolute bottom-1/4 left-[12%] z-10 hidden lg:block"
+      >
+        <div className="flat-card p-5 w-44">
+          <div className="text-primary font-bold text-3xl mb-1">20 Years</div>
+          <div className="text-muted text-xs">Product Warranty</div>
+          <div className="w-8 h-0.5 bg-primary mt-2" />
+        </div>
+      </motion.div>
 
-        <motion.div
-          animate={{ y: [0, -8, 0], rotate: [0.5, -0.5, 0.5] }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2.5 }}
-          className="absolute bottom-1/4 left-[12%] z-10 hidden lg:block"
-        >
-          <div className="flat-card p-5 w-44">
-            <div className="text-primary font-bold text-3xl mb-1">50+</div>
-            <div className="text-muted text-xs">Commercial Works</div>
-            <div className="w-8 h-0.5 bg-primary mt-2" />
-          </div>
-        </motion.div>
-
-        {/* Light reflection sweep */}
+      {/* Light reflection sweep */}
       <motion.div
         animate={{ x: ["-100%", "200%"] }}
         transition={{ duration: 6, repeat: Infinity, ease: "linear", repeatDelay: 4 }}
@@ -201,7 +188,7 @@ export default function Hero() {
       />
 
       {/* Main Content */}
-      <div className="relative z-20 container-custom pt-20  pb-16">
+      <div className="relative z-20 container-custom pt-20 pb-16">
         {/*
           Content container:
           - Light mode: frosted-glass panel so text pops against the background image

@@ -20,7 +20,7 @@ export default function TestimonialsContactPage() {
   useSEO({
     title: "Contact Alufab – Get a Free Quote | uPVC Fabrication Kerala",
     description:
-      "Contact Alufab for a free uPVC or uPVC fabrication quote. Read client testimonials from Kerala and UAE projects. Get answers to common questions about our products and services.",
+      "Contact Alufab for a free uPVC fabrication quote. Get answers to common questions about our products and services. Our team responds within 24 hours.",
   });
 
   return (

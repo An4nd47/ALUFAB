@@ -18,9 +18,9 @@ const SectionSkeleton = () => (
 
 export default function AboutPage() {
   useSEO({
-    title: "About Alufab – 5+ Years of uPVC Excellence | Kerala",
+    title: "About Alufab – 5+ Years of uPVC Excellence in Kerala",
     description:
-      "Learn about Alufab, Kerala's most trusted uPVC fabrication company. ISO-certified, serving across Kerala with 500+ completed projects since 2009.",
+      "Learn about Alufab, Kerala's most trusted uPVC and aluminium fabrication company. 5+ years of expertise, 200+ projects completed, serving clients across Kerala.",
   });
 
   return (

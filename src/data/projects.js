@@ -70,12 +70,3 @@ export const projectCategories = [
   { id: "residential", label: "Residential" },
 ];
 
-export const galleryCategories = [
-  { id: "all", label: "All" },
-  { id: "windows", label: "Windows" },
-  { id: "doors", label: "Doors" },
-  { id: "cabinets", label: "Cabinets" },
-  { id: "glass", label: "Glass" },
-  { id: "commercial", label: "Commercial" },
-  { id: "residential", label: "Residential" },
-];

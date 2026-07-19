@@ -46,6 +46,15 @@ export default function Footer() {
       window.scrollTo({ top: 0 });
     }
   };
+
+  // For product links with hashes: only scroll to top on cross-page nav,
+  // same-page hash navigation is handled by Products.jsx useEffect
+  const handleProductLinkClick = (href) => {
+    const [path] = href.split('#');
+    if (location.pathname !== path) {
+      window.scrollTo({ top: 0 });
+    }
+  };
   const isContactPage = location.pathname === '/testimonials-contact' || location.pathname === '/contact';
   return (
     <footer style={{ background: 'var(--surface)', borderTop: '1px solid var(--border)' }} aria-label="Site footer">
@@ -145,6 +154,7 @@ export default function Footer() {
                 <li key={p.label}>
                   <Link
                     to={p.href}
+                    onClick={() => handleProductLinkClick(p.href)}
                     className="text-sm transition-colors duration-200 flex items-center gap-2 group hover:text-primary"
                     style={{ color: 'var(--muted)' }}
                   >

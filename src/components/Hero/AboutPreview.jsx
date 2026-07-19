@@ -5,10 +5,10 @@ import { ArrowRight, Award, Building2, Users, CheckCircle } from "lucide-react";
 import { fadeLeft, fadeRight } from "../../utils";
 
 const highlights = [
-  "ISO-certified premium aluminium profiles",
+  "ISO-certified premium uPVC profiles",
   "In-house design and manufacturing",
   "Serving across Kerala",
-  "5-year product warranty",
+  "20-year product warranty",
 ];
 
 export default function AboutPreview() {

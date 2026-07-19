@@ -63,6 +63,10 @@ export default function Products() {
     const currentHash = location.hash ? location.hash.replace("#", "") : null;
     if (categories.some((c) => c.id === currentHash)) {
       setActiveFilter(currentHash);
+      // Scroll the products section into view so the user sees the filtered result
+      setTimeout(() => {
+        sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
     } else if (!location.hash) {
       setActiveFilter("all");
     }
