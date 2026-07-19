@@ -4,7 +4,7 @@ export const products = [
     category: "uPVC Windows",
     title: "uPVC Sliding Windows",
     description: "Smooth-gliding uPVC sliding windows with precision engineering for seamless operation and maximum ventilation.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+    image: "/img/products/Sliding Windows.webp",
     tag: "windows",
   },
   {
@@ -20,7 +20,7 @@ export const products = [
     category: "uPVC Windows",
     title: "French Windows",
     description: "Elegant floor-to-ceiling French windows that merge indoor luxury with outdoor views.",
-    image: "https://images.unsplash.com/photo-1613977257363-707ba9348227?w=600&q=80",
+    image: "/img/products/frenchWindows.jpg",
     tag: "windows",
   },
   {
@@ -28,7 +28,7 @@ export const products = [
     category: "uPVC Windows",
     title: "uPVC Double Glazed Windows",
     description: "Energy-efficient uPVC windows with double glazing for superior thermal and acoustic insulation.",
-    image: "https://images.unsplash.com/photo-1501183638710-841dd1904471?w=600&q=80",
+    image: "/img/products/doubleGlazed.jpg",
     tag: "windows",
   },
   {
@@ -36,7 +36,7 @@ export const products = [
     category: "uPVC Doors",
     title: "uPVC Sliding Doors",
     description: "Heavy-duty uPVC sliding doors with smooth track systems and premium handles.",
-    image: "https://images.unsplash.com/photo-1600607686527-6fb886090705?w=600&q=80",
+    image: "/img/products/slidingDoor.jpg",
     tag: "doors",
   },
   {
@@ -44,7 +44,7 @@ export const products = [
     category: "uPVC Doors",
     title: "Folding / Bi-Fold Doors",
     description: "Space-saving folding doors that open up entire walls, connecting spaces beautifully.",
-    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80",
+    image: "/img/products/bifold.jpg",
     tag: "doors",
   },
   {
@@ -68,7 +68,7 @@ export const products = [
     category: "Cabinets",
     title: "uPVC Kitchen Cabinets",
     description: "Rust-free, termite-proof uPVC kitchen cabinets with premium finishes.",
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80",
+    image: "/img/products/kitchen.jpg",
     tag: "cabinets",
   },
   {
@@ -76,7 +76,7 @@ export const products = [
     category: "Cabinets",
     title: "uPVC Wardrobes",
     description: "Custom-designed uPVC wardrobes combining elegance with maximum storage efficiency.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80",
+    image: "/img/products/wardrobe.jpg",
     tag: "cabinets",
   },
   {
@@ -84,7 +84,7 @@ export const products = [
     category: "Glass Works",
     title: "Curtain Wall Systems",
     description: "Architectural curtain wall systems that define modern commercial building facades.",
-    image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80",
+    image: "/img/products/curtain.webp",
     tag: "glass",
   },
   {
@@ -92,7 +92,7 @@ export const products = [
     category: "Structural",
     title: "uPVC Railings",
     description: "Precision-crafted uPVC railings for staircases, balconies and terraces.",
-    image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&q=80",
+    image: "/img/products/railings.webp",
     tag: "structural",
   },
   {
@@ -108,7 +108,7 @@ export const products = [
     category: "Glass Works",
     title: "Frameless Glass Works",
     description: "Stunning frameless glass installations including shower enclosures and feature walls.",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80",
+    image: "/img/products/framelessGlass.jpg",
     tag: "glass",
   },
   {
@@ -116,7 +116,7 @@ export const products = [
     category: "uPVC Windows",
     title: "uPVC Sliding Systems",
     description: "Premium uPVC sliding systems engineered for durability in all weather conditions.",
-    image: "https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?w=600&q=80",
+    image: "/img/products/slidingSystem.jpg",
     tag: "windows",
   },
 ];

@@ -3,7 +3,6 @@ import { useSEO } from "../useSEO";
 
 const Products = lazy(() => import("../components/Products"));
 const Projects = lazy(() => import("../components/Projects"));
-const Gallery = lazy(() => import("../components/Gallery"));
 
 const SectionSkeleton = () => (
   <div className="section-padding container-custom">
@@ -30,8 +29,6 @@ export default function ProductsProjectsPage() {
         <Products />
         <div className="section-divider container-custom" />
         <Projects />
-        <div className="section-divider container-custom" />
-        <Gallery />
       </main>
     </Suspense>
   );

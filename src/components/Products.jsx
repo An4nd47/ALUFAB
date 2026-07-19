@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { products } from "../data/products";
 import { staggerContainer, fadeUp } from "../utils";
 
@@ -43,9 +42,6 @@ function ProductCard({ product }) {
         <p className="text-sm leading-relaxed mb-4 line-clamp-2" style={{ color: 'var(--muted)' }}>
           {product.description}
         </p>
-        <button className="btn-ghost text-sm p-0">
-          Learn More <ArrowRight size={14} />
-        </button>
       </div>
 
       {/* Bottom accent line */}

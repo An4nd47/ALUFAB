@@ -66,7 +66,7 @@ export default function About() {
         </div>
 
         {/* Split layout */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-16 lg:mb-24">
           {/* Left: Image */}
           <motion.div
             variants={fadeLeft}

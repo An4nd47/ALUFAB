@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { MapPin, Calendar, ArrowRight } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { projects, projectCategories } from "../data/projects";
 import { staggerContainer, fadeUp } from "../utils";
 
@@ -10,7 +10,7 @@ function ProjectCard({ project }) {
   return (
     <motion.div
       variants={fadeUp}
-      className="relative rounded-xl overflow-hidden group cursor-pointer shadow-md"
+      className="relative rounded-xl overflow-hidden group cursor-pointer shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       aria-label={project.title}
@@ -34,7 +34,6 @@ function ProjectCard({ project }) {
         <h3 className="font-display text-lg text-white font-bold">{project.title}</h3>
         <div className="flex items-center gap-3 mt-1 text-white/70 text-xs">
           <span className="flex items-center gap-1"><MapPin size={10} /> {project.location}</span>
-          <span className="flex items-center gap-1"><Calendar size={10} /> {project.year}</span>
         </div>
       </div>
 
@@ -46,18 +45,14 @@ function ProjectCard({ project }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.25 }}
-            className="absolute inset-0 flex flex-col justify-center items-start p-6 bg-black/85"
+            className="absolute inset-0 flex flex-col justify-center items-start p-6 bg-black/40 backdrop-blur-md border border-white/10"
           >
-            <span className="tag-chip mb-4">{project.category}</span>
+            <span className="tag-chip mb-4 bg-white/20 text-white backdrop-blur-sm border-white/30">{project.category}</span>
             <h3 className="font-display text-xl text-white font-bold mb-2">{project.title}</h3>
-            <p className="text-white/80 text-sm leading-relaxed mb-6">{project.description}</p>
-            <div className="flex items-center gap-3 text-white/60 text-xs mb-6">
+            <p className="text-white/90 text-sm leading-relaxed mb-6 font-medium">{project.description}</p>
+            <div className="flex items-center gap-3 text-white/80 text-xs mb-6 font-medium">
               <span className="flex items-center gap-1"><MapPin size={10} /> {project.location}</span>
-              <span className="flex items-center gap-1"><Calendar size={10} /> {project.year}</span>
             </div>
-            <button className="btn-ghost text-sm p-0">
-              View Details <ArrowRight size={14} />
-            </button>
           </motion.div>
         )}
       </AnimatePresence>

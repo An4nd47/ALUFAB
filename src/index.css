@@ -84,7 +84,7 @@
 /* ── Utility Components ───────────────────────────────────────────── */
 @layer components {
   .section-padding {
-    @apply py-20 px-4 sm:px-6 lg:px-8;
+    @apply py-14 md:py-20 px-4 sm:px-6 lg:px-8;
     position: relative;
     overflow: hidden;
   }
