@@ -87,7 +87,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2.5 mb-5">
-              <img src="/img/logo.webp" alt="Alufab Logo" className="w-10 h-10 object-contain" />
+              <img src="/img/logo.png" alt="Alufab Logo" className="w-10 h-10 object-contain" />
               <span className="font-display font-bold text-xl" style={{ color: 'var(--text)' }}>
                 Alu<span className="text-primary">fab</span>
               </span>

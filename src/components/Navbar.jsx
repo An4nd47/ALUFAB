@@ -96,7 +96,7 @@ export default function Navbar() {
         <div className="container-custom flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group">
-            <img src="/img/logo.webp" alt="Alufab Logo" className="w-10 h-10 object-contain" />
+            <img src="/img/logo.png" alt="Alufab Logo" className="w-10 h-10 object-contain" />
             <span className="font-display font-bold text-xl text-white">
               Alu<span className="text-white/80">fab</span>
             </span>
@@ -168,7 +168,7 @@ export default function Navbar() {
             <div className="flex items-center justify-between px-6 py-5 border-b"
               style={{ borderColor: 'var(--border)' }}>
               <Link to="/" className="flex items-center gap-2.5 group" onClick={() => setMobileOpen(false)}>
-                <img src="/img/logo.webp" alt="Alufab Logo" className="w-10 h-10 object-contain" />
+                <img src="/img/logo.png" alt="Alufab Logo" className="w-10 h-10 object-contain" />
                 <span className="font-display font-bold text-xl text-white">
                   Alu<span className="text-white/80">fab</span>
                 </span>
